@@ -1,0 +1,99 @@
+@import '../../styles//variables';
+
+
+main {
+    background-color: $very-dark-blue;
+}
+
+.todo {
+    max-width: 60rem;
+    margin: 1rem auto;
+    min-height: 100vh;
+
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+
+        &-content {
+            font-size: 4rem;
+            font-weight: 700;
+            color: $light-grayish-blue-secondary;
+            text-transform: uppercase;
+        }
+    }
+
+    &__theme {
+
+    }
+
+
+
+
+    &__container {
+
+    }
+
+    &__list {
+
+    }
+
+
+    &__item {
+
+    }
+
+    &__status {
+
+
+        &-content {
+
+        }
+    }
+
+    &__left {
+
+    }
+
+    &__completed {
+
+    }
+}
+
+
+.todo-create {
+    display: flex;
+    align-items: center;
+    grid-gap: 2rem;
+    padding: 2rem;
+    background-color: $very-dark-desaturated-blue;
+    border: none;
+    border-radius: 5px;
+    
+    & span {
+        background: inherit;
+        width: 28px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid $light-grayish-blue-primary;
+    }
+    
+    &__input {
+        width: 100%;
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $very-dark-grayish-blue-secondary;
+            font-weight: 400;
+            font-size: 2rem;
+        }
+    }   
+}
