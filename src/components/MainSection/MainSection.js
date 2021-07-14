@@ -8,7 +8,7 @@ import crossIcon from "../../assets/images/icon-cross.svg";
 import "./MainSection.scss";
 
 const MainSection = () => {
-  const todoItems = [];
+  const todoItems = ["hello", "goodbye", "hi", "bye"];
 
   return (
     <main>
@@ -19,8 +19,7 @@ const MainSection = () => {
         </div>
 
         <div className="todo-create">
-          <span>
-          </span>
+          <span></span>
           <input
             className="todo-create__input"
             placeholder="Create a new todo..."
@@ -31,14 +30,17 @@ const MainSection = () => {
           <ul className="todo__list">
             {todoItems.map((item) => (
               <>
-                <li className="todo__item">{item}</li>
+                <li className="todo__item">
+                  <span></span>
+                  <small>{item}</small>
+                </li>
               </>
             ))}
           </ul>
 
           <div className="todo__status">
-            <div className="todo__left"></div>
-            <div className="todos__status-content">
+            <div className="todo__left">5 items left</div>
+            <div className="todo__status-content">
               <span>All</span>
               <span>Active</span>
               <span>Completed</span>
