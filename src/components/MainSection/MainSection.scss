@@ -72,7 +72,8 @@ h2 {
         width: 28px;
         height: 25px;
         border-radius: 50%;
-        border: 1px solid $light-grayish-blue-primary;
+        border: 1px solid $very-dark-grayish-blue-secondary;
+        cursor: pointer;
     }
     
     &__input {

@@ -44,7 +44,6 @@ const MainSection = () => {
     });
 
     setTodoItems(mapped);
-    localStorage.setItem("todoItems", todoItems);
   };
 
   const filterHandler = () => {
@@ -91,7 +90,7 @@ const MainSection = () => {
       <div className="todo">
         <div className="todo__header">
           <h1 className="todo__header-content">todo</h1>
-          <img className="todo__theme" src={moonLogo} alt={moonLogo}></img>
+          <img className="todo__theme" src={sunLogo} alt={sunLogo}></img>
         </div>
 
         <Form
@@ -112,6 +111,7 @@ const MainSection = () => {
             statusHandler={statusHandler}
             clearCompletedTodosHandler={clearCompletedTodosHandler}
             categories={categories}
+            status={status}
           />
         </div>
       </div>
