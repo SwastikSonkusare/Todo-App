@@ -3,6 +3,8 @@
 
 main {
     background-color: $very-dark-blue;
+
+    padding: 0 1rem;
 }
 
 .todo {
@@ -50,6 +52,11 @@ main {
     &__item {
         border-radius: 0 !important;
         border-bottom: 1px solid $very-dark-grayish-blue-secondary;
+
+        &.complete {
+            text-decoration: line-through;
+            text-decoration-color: $dark-grayish-blue-secondary;
+        }
     }
 
     &__status {
@@ -92,6 +99,11 @@ main {
         color: $light-grayish-blue-primary;
     }
     
+    &.complete small {
+        color: $very-dark-grayish-blue-primary;
+    }
+
+
     & span {
         background: inherit;
         width: 28px;
@@ -105,6 +117,7 @@ main {
         background: none;
         border: none;
         font-size: 2.3rem;
+        color: $light-grayish-blue-secondary;
 
         &:focus-visible {
             outline: none;
