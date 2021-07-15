@@ -7,6 +7,14 @@ main {
     padding: 0 1rem;
 }
 
+h2 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-align: center;
+    color: $light-grayish-blue-secondary;
+    margin-bottom: 1rem;
+}
+
 .todo {
     max-width: 60rem;
     margin: 0 auto;
@@ -28,12 +36,6 @@ main {
         }
     }
 
-    &__theme {
-
-    }
-
-
-
 
     &__container {
         position: relative;
@@ -42,45 +44,6 @@ main {
         overflow: hidden;
         z-index: 100;
         box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); 
-    }
-
-    &__list {
-
-    }
-
-
-    &__item {
-        border-radius: 0 !important;
-        border-bottom: 1px solid $very-dark-grayish-blue-secondary;
-
-        &.complete {
-            text-decoration: line-through;
-            text-decoration-color: $dark-grayish-blue-secondary;
-        }
-    }
-
-    &__status {
-        font-size: 1.5rem;
-        padding: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: $very-dark-grayish-blue-secondary;   
-        background-color: $very-dark-desaturated-blue;
-
-
-        &-content {
-            display: flex;
-            grid-gap: 1rem;
-        }
-    }
-
-    &__left {
-
-    }
-
-    &__completed {
-
     }
 }
 

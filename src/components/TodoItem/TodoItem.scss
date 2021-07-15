@@ -1,0 +1,33 @@
+@import '../../styles//variables';
+
+
+.todo {
+
+
+  &__item {
+    border-radius: 0 !important;
+    border-bottom: 1px solid $very-dark-grayish-blue-secondary;
+
+    &.complete {
+      text-decoration: line-through;
+    }
+
+    &.complete span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: $check-background;
+      border: none;
+    }
+  }
+}
+
+
+.cross-icon {
+    margin-left: auto;
+}
+
+.check-icon {
+    width: 18px;
+    height: 18px;
+}

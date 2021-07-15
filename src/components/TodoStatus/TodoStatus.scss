@@ -1,0 +1,35 @@
+@import '../../styles//variables';
+
+
+.todo {
+
+    
+    &__status {
+        font-size: 1.5rem;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $very-dark-grayish-blue-secondary;   
+        background-color: $very-dark-desaturated-blue;
+
+
+        &-content {
+            display: flex;
+            grid-gap: 1rem;
+
+            & span {
+                cursor: pointer;
+
+                &:hover {
+                    color: $light-grayish-blue-primary;
+                }
+
+                &:active
+                 {
+                    color: $color-bright-blue;
+                }
+            }
+        }
+    }
+}
