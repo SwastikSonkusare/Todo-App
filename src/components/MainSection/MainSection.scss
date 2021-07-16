@@ -1,74 +1,82 @@
-@import '../../styles//variables';
-
+@import "../../styles//variables";
 
 main {
-    background-color: $very-dark-blue;
-    padding: 0 1rem;
+  background-color: $very-dark-blue;
+  padding: 0 1rem;
 
-    &.light {
-      background-color: $light-grayish-blue;
-    }
+  &.light {
+    background-color: $light-grayish-blue;
+  }
 }
 
 h2 {
-    font-weight: 700;
-    font-size: 1.6rem;
-    text-align: center;
-    color: $light-grayish-blue-secondary;
-    margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-align: center;
+  color: $light-grayish-blue-secondary;
+  margin-bottom: 1rem;
 }
 
 .todo {
-    max-width: 60rem;
-    margin: 0 auto;
-    min-height: 100vh;
-    transform: translateY(-21rem);
+  max-width: 60rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  transform: translateY(-21rem);
 
+  &__container {
+    position: relative;
+    margin-top: 2rem;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  }
 
-    &__container {
-        position: relative;
-        margin-top: 2rem;
-        border-radius: 5px;
-        overflow: hidden;
-        z-index: 100;
-        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2); 
+  &__dnd {
+    color: $very-dark-grayish-blue-secondary;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 4rem;
+
+    .light & {
+      color: $dark-grayish-blue-primary;
     }
+  }
 }
 
+.todo-create,
+.todo__item {
+  display: flex;
+  align-items: center;
+  grid-gap: 2rem;
+  padding: 2rem;
+  background-color: $very-dark-desaturated-blue;
+  border-radius: 5px;
 
-.todo-create, .todo__item {
-    display: flex;
-    align-items: center;
-    grid-gap: 2rem;
-    padding: 2rem;
-    background-color: $very-dark-desaturated-blue;
-    border-radius: 5px;
+  & span {
+    background: inherit;
+    width: 28px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid $very-dark-grayish-blue-secondary;
+    cursor: pointer;
+  }
 
+  &__input {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 2.3rem;
+    color: $light-grayish-blue-secondary;
 
-    & span {
-        background: inherit;
-        width: 28px;
-        height: 25px;
-        border-radius: 50%;
-        border: 1px solid $very-dark-grayish-blue-secondary;
-        cursor: pointer;
+    &:focus-visible {
+      outline: none;
     }
-    
-    &__input {
-        width: 100%;
-        background: none;
-        border: none;
-        font-size: 2.3rem;
-        color: $light-grayish-blue-secondary;
 
-        &:focus-visible {
-            outline: none;
-        }
-
-        &::placeholder {
-            color: $very-dark-grayish-blue-secondary;
-            font-weight: 400;
-            font-size: 2rem;
-        }
-    }   
+    &::placeholder {
+      color: $very-dark-grayish-blue-secondary;
+      font-weight: 400;
+      font-size: 2rem;
+    }
+  }
 }

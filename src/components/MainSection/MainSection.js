@@ -117,7 +117,10 @@ const MainSection = () => {
             lightTheme={lightTheme}
           />
         </div>
+      
+      <p className={lightTheme ? "todo__dnd light" : "todo__dnd"}>Drag and Drop to reorder the list</p>
       </div>
+
     </main>
     </>
   );

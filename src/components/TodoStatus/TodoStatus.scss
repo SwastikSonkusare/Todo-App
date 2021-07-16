@@ -1,8 +1,6 @@
 @import "../../styles//variables";
 
 .todo {
-
-  
   &__status {
     font-size: 1.5rem;
     padding: 2rem;
@@ -27,9 +25,28 @@
       color: $very-dark-grayish-blue-secondary;
       background-color: $very-dark-desaturated-blue;
 
+      &.light {
+        background-color: $very-light-gray;
+      }
+
       & span {
+        cursor: pointer;
+        font-weight: 700;
+
+        &:hover {
+          color: $very-light-gray;
+        }
+
         &.clicked {
           color: $color-bright-blue;
+        }
+
+        .light &:hover {
+          color: $very-dark-grayish-blue-secondary;
+        }
+
+        .light & {
+          color: $dark-grayish-blue-primary;
         }
       }
 
@@ -72,6 +89,14 @@
 
         &:hover {
           color: $light-grayish-blue-primary;
+        }
+
+        .light & {
+          color: $dark-grayish-blue-primary;
+
+          &:hover {
+            color: $very-dark-grayish-blue-secondary;
+          }
         }
       }
     }

@@ -27,11 +27,11 @@ const TodoStatus = ({
 
         <div className={lightTheme ? "light" : ""} onClick={clearCompletedTodosHandler}>Clear Completed</div>
       </div>
-      <div className="todo__status--mobile">
+      <div className={lightTheme ? "todo__status--mobile light" : "todo__status--mobile"}>
         {categories.map((category) => (
           <span
             onClick={() => statusHandler(category)}
-            className={category === status ? "clicked" : ""}
+            className={`${category === status ? "clicked" : ""} ${lightTheme ? "light" : ""}`}
           >
             {category}
           </span>
