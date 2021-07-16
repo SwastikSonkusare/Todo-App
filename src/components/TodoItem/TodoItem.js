@@ -3,11 +3,21 @@ import React from "react";
 import checkIcon from "../../assets/images/icon-check.svg";
 import crossIcon from "../../assets/images/icon-cross.svg";
 
-import './TodoItem.scss';
+import "./TodoItem.scss";
 
-const TodoItem = ({ item, taskCompletedHandler, deleteSingleTodoHandler }) => {
+const TodoItem = ({
+  item,
+  taskCompletedHandler,
+  deleteSingleTodoHandler,
+  provided,
+}) => {
   return (
-    <li className={item.complete ? "todo__item complete" : "todo__item"}>
+    <li
+      className={item.complete ? "todo__item complete" : "todo__item"}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
+    >
       <span onClick={() => taskCompletedHandler(item.id)}>
         {item.complete && (
           <img className="check-icon" src={checkIcon} alt={checkIcon}></img>

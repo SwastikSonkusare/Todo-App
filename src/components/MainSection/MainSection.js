@@ -104,6 +104,7 @@ const MainSection = () => {
             filteredTodos={filteredTodos}
             taskCompletedHandler={taskCompletedHandler}
             deleteSingleTodoHandler={deleteSingleTodoHandler}
+            setFilteredTodos={setFilteredTodos}
           />
 
           <TodoStatus
