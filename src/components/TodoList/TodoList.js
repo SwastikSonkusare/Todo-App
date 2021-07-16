@@ -9,7 +9,8 @@ const TodoList = ({
   deleteSingleTodoHandler,
   setFilteredTodos,
   setLightTheme,
-  lightTheme
+  lightTheme,
+  setTodoItems
 }) => {
 
   const handleOnDragEnd = (result) => {
@@ -18,7 +19,7 @@ const TodoList = ({
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    setFilteredTodos(items)
+    setTodoItems(items)
   }
 
 

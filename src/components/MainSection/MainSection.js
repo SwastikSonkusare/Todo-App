@@ -33,7 +33,6 @@ const MainSection = () => {
     copy = [...copy, { id: uuidv4(), task: userInput, complete: false }];
 
     setTodoItems(copy);
-    localStorage.setItem("todoItems", todoItems);
   };
 
   const taskCompletedHandler = (id) => {
@@ -52,20 +51,16 @@ const MainSection = () => {
         setFilteredTodos(
           todoItems.filter((todoItem) => todoItem.complete === true)
         );
-
-        localStorage.setItem("todoItems", todoItems);
         break;
 
       case "Active":
         setFilteredTodos(
           todoItems.filter((todoItem) => todoItem.complete === false)
         );
-        localStorage.setItem("todoItems", todoItems);
         break;
 
       default:
         setFilteredTodos(todoItems);
-        localStorage.setItem("todoItems", todoItems);
     }
   };
 
@@ -81,47 +76,73 @@ const MainSection = () => {
     setTodoItems(todoItems.filter((item) => item.id !== id));
   };
 
-  useEffect(() => {
+  // function to add todos to local storage
+  const addToLocalStorage = (filteredTodos) => {
+    localStorage.setItem("todoItems", JSON.stringify(filteredTodos));
+    // renderTodos(todos);
     filterHandler();
-  }, [todoItems, status]);
+  };
+
+  // function helps to get everything from local storage
+  const getFromLocalStorage = () => {
+    const reference = localStorage.getItem("todoItems");
+    // if reference exists
+    if (reference) {
+      // converts back to array and store it in todos array
+      setTodoItems(JSON.parse(reference));
+    }
+  };
+
+  useEffect(() => {
+    
+    getFromLocalStorage();
+  }, [])
+
+  useEffect(() => {
+    
+    filterHandler();
+    addToLocalStorage(filteredTodos);
+  }, [todoItems, status, filteredTodos]);
 
   return (
     <>
-    <Header lightTheme={lightTheme} />
-    <main className={lightTheme ? "light" : ""}>
-      <div className="todo">
-        <TodoHeader setLightTheme={setLightTheme} lightTheme={lightTheme} />
+      <Header lightTheme={lightTheme} />
+      <main className={lightTheme ? "light" : ""}>
+        <div className="todo">
+          <TodoHeader setLightTheme={setLightTheme} lightTheme={lightTheme} />
 
-        <Form
-          userInput={userInput}
-          setUserInput={setUserInput}
-          createTodoHandler={createTodoHandler}
-          lightTheme={lightTheme}
-        />
-
-        <div className="todo__container">
-          <TodoList
-            filteredTodos={filteredTodos}
-            taskCompletedHandler={taskCompletedHandler}
-            deleteSingleTodoHandler={deleteSingleTodoHandler}
-            setFilteredTodos={setFilteredTodos}
+          <Form
+            userInput={userInput}
+            setUserInput={setUserInput}
+            createTodoHandler={createTodoHandler}
             lightTheme={lightTheme}
           />
 
-          <TodoStatus
-            todoItems={todoItems}
-            statusHandler={statusHandler}
-            clearCompletedTodosHandler={clearCompletedTodosHandler}
-            categories={categories}
-            status={status}
-            lightTheme={lightTheme}
-          />
+          <div className="todo__container">
+            <TodoList
+              filteredTodos={filteredTodos}
+              taskCompletedHandler={taskCompletedHandler}
+              deleteSingleTodoHandler={deleteSingleTodoHandler}
+              setFilteredTodos={setFilteredTodos}
+              lightTheme={lightTheme}
+              setTodoItems={setTodoItems}
+            />
+
+            <TodoStatus
+              todoItems={todoItems}
+              statusHandler={statusHandler}
+              clearCompletedTodosHandler={clearCompletedTodosHandler}
+              categories={categories}
+              status={status}
+              lightTheme={lightTheme}
+            />
+          </div>
+
+          <p className={lightTheme ? "todo__dnd light" : "todo__dnd"}>
+            Drag and Drop to reorder the list
+          </p>
         </div>
-      
-      <p className={lightTheme ? "todo__dnd light" : "todo__dnd"}>Drag and Drop to reorder the list</p>
-      </div>
-
-    </main>
+      </main>
     </>
   );
 };
