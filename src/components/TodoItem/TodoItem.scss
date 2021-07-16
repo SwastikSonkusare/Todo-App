@@ -1,9 +1,6 @@
-@import '../../styles//variables';
-
+@import "../../styles//variables";
 
 .todo {
-
-
   &__item {
     position: static !important;
     top: 0 !important;
@@ -16,7 +13,25 @@
       text-decoration: line-through;
     }
 
-    &.complete span {
+    & small {
+      font-size: 2rem;
+      font-weight: 400;
+      color: $light-grayish-blue-primary;
+
+      &.light {
+        color: $very-dark-grayish-blue-primary;
+      }
+    }
+
+    &.complete small {
+      color: $very-dark-grayish-blue-primary;
+    }
+
+    &.light {
+      background-color: $very-light-gray;
+    }
+
+    &.complete div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,7 +39,13 @@
       border: none;
     }
 
-    & span {
+    & div {
+      background: inherit;
+      width: 28px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid $very-dark-grayish-blue-secondary;
+      cursor: pointer;
 
       &:hover {
         border: 1px solid $light-grayish-blue-secondary;
@@ -33,12 +54,11 @@
   }
 }
 
-
 .cross-icon {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .check-icon {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }

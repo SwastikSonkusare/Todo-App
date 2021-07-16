@@ -6,7 +6,7 @@ import MainSection from './components/MainSection/MainSection';
 const App = () => {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <MainSection />
         </>
     )

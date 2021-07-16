@@ -1,6 +1,8 @@
 @import "../../styles//variables";
 
 .todo {
+
+  
   &__status {
     font-size: 1.5rem;
     padding: 2rem;
@@ -9,6 +11,10 @@
     align-items: center;
     color: $very-dark-grayish-blue-secondary;
     background-color: $very-dark-desaturated-blue;
+
+    &.light {
+      background-color: $very-light-gray;
+    }
 
     &--mobile {
       display: none;
@@ -22,10 +28,9 @@
       background-color: $very-dark-desaturated-blue;
 
       & span {
-
         &.clicked {
-            color: $color-bright-blue;
-          }
+          color: $color-bright-blue;
+        }
       }
 
       @media only screen and (max-width: 31.25em) {
@@ -46,6 +51,15 @@
 
         &:hover {
           color: $light-grayish-blue-primary;
+        }
+
+        &.light {
+          color: $dark-grayish-blue-primary;
+          font-weight: 600;
+        }
+
+        .light &:hover {
+          color: $very-dark-grayish-blue-primary;
         }
 
         &.clicked {

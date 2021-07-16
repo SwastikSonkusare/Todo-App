@@ -1,17 +1,22 @@
 import React from "react";
 
-import './Form.scss';
+import "./Form.scss";
 
-const Form = ({ createTodoHandler, setUserInput, userInput }) => {
+const Form = ({
+  createTodoHandler,
+  setUserInput,
+  userInput,
+  lightTheme,
+}) => {
   return (
     <form
-      className="todo-create"
+      className={lightTheme ? "todo-create light" : "todo-create"}
       onSubmit={(e) => createTodoHandler(userInput, e)}
     >
-      <span></span>
+      <span className={lightTheme ? "light" : ""}></span>
       <input
         type="text"
-        className="todo-create__input"
+        className={lightTheme ? "todo-create__input light" : "todo-create__input"}
         placeholder="Create a new todo..."
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}

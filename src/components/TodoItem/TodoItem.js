@@ -10,20 +10,21 @@ const TodoItem = ({
   taskCompletedHandler,
   deleteSingleTodoHandler,
   provided,
+  lightTheme
 }) => {
   return (
     <li
-      className={item.complete ? "todo__item complete" : "todo__item"}
+      className={`${item.complete ? "todo__item complete" : "todo__item"} ${lightTheme ? "todo__item light" : ""}`}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       ref={provided.innerRef}
     >
-      <span onClick={() => taskCompletedHandler(item.id)}>
+      <div onClick={() => taskCompletedHandler(item.id)} className={lightTheme ? "light" : ""}>
         {item.complete && (
           <img className="check-icon" src={checkIcon} alt={checkIcon}></img>
         )}
-      </span>
-      <small>{item.task}</small>
+      </div>
+      <small className={lightTheme ? "light" : ""}>{item.task}</small>
 
       <img
         className="cross-icon"

@@ -9,12 +9,20 @@
     background-color: $very-dark-desaturated-blue;
     border-radius: 5px;
 
+    &.light {
+        background-color: $very-light-gray;
+    }
+
     & span {
         background: inherit;
         width: 28px;
         height: 25px;
         border-radius: 50%;
         border: 1px solid $light-grayish-blue-primary;
+
+        &.light {
+            border: 1px solid $dark-grayish-blue-primary;
+        }
     }
     
     &__input {
@@ -23,6 +31,10 @@
         border: none;
         font-size: 2.3rem;
         color: $light-grayish-blue-secondary;
+
+        &.light {
+            color: $very-dark-grayish-blue-primary;
+        }
 
         &:focus-visible {
             outline: none;

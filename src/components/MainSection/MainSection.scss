@@ -3,8 +3,11 @@
 
 main {
     background-color: $very-dark-blue;
-
     padding: 0 1rem;
+
+    &.light {
+      background-color: $light-grayish-blue;
+    }
 }
 
 h2 {
@@ -20,21 +23,6 @@ h2 {
     margin: 0 auto;
     min-height: 100vh;
     transform: translateY(-21rem);
-
-
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 3rem;
-
-        &-content {
-            font-size: 4rem;
-            font-weight: 700;
-            color: $light-grayish-blue-secondary;
-            text-transform: uppercase;
-        }
-    }
 
 
     &__container {
@@ -55,16 +43,6 @@ h2 {
     padding: 2rem;
     background-color: $very-dark-desaturated-blue;
     border-radius: 5px;
-
-    & small {
-        font-size: 2rem;
-        font-weight: 400;
-        color: $light-grayish-blue-primary;
-    }
-    
-    &.complete small {
-        color: $very-dark-grayish-blue-primary;
-    }
 
 
     & span {

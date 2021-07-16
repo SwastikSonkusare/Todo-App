@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
-import moonLogo from "../../assets/images/icon-moon.svg";
-import sunLogo from "../../assets/images/icon-sun.svg";
-
 import Form from "../Form/Form";
+import Header from "../Header/Header";
+import TodoHeader from "../TodoHeader/TodoHeader";
 import TodoList from "../TodoList/TodoList";
 import TodoStatus from "../TodoStatus/TodoStatus";
 
@@ -16,6 +15,7 @@ const MainSection = () => {
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [status, setStatus] = useState();
   const [userInput, setUserInput] = useState("");
+  const [lightTheme, setLightTheme] = useState(false);
 
   const categories = ["All", "Active", "Completed"];
 
@@ -86,17 +86,17 @@ const MainSection = () => {
   }, [todoItems, status]);
 
   return (
-    <main>
+    <>
+    <Header lightTheme={lightTheme} />
+    <main className={lightTheme ? "light" : ""}>
       <div className="todo">
-        <div className="todo__header">
-          <h1 className="todo__header-content">todo</h1>
-          <img className="todo__theme" src={sunLogo} alt={sunLogo}></img>
-        </div>
+        <TodoHeader setLightTheme={setLightTheme} lightTheme={lightTheme} />
 
         <Form
           userInput={userInput}
           setUserInput={setUserInput}
           createTodoHandler={createTodoHandler}
+          lightTheme={lightTheme}
         />
 
         <div className="todo__container">
@@ -105,6 +105,7 @@ const MainSection = () => {
             taskCompletedHandler={taskCompletedHandler}
             deleteSingleTodoHandler={deleteSingleTodoHandler}
             setFilteredTodos={setFilteredTodos}
+            lightTheme={lightTheme}
           />
 
           <TodoStatus
@@ -113,10 +114,12 @@ const MainSection = () => {
             clearCompletedTodosHandler={clearCompletedTodosHandler}
             categories={categories}
             status={status}
+            lightTheme={lightTheme}
           />
         </div>
       </div>
     </main>
+    </>
   );
 };
 

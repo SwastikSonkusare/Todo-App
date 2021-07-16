@@ -7,7 +7,9 @@ const TodoList = ({
   filteredTodos,
   taskCompletedHandler,
   deleteSingleTodoHandler,
-  setFilteredTodos
+  setFilteredTodos,
+  setLightTheme,
+  lightTheme
 }) => {
 
   const handleOnDragEnd = (result) => {
@@ -39,6 +41,8 @@ const TodoList = ({
                       item={item}
                       taskCompletedHandler={taskCompletedHandler}
                       deleteSingleTodoHandler={deleteSingleTodoHandler}
+                      setLightTheme={setLightTheme}
+                      lightTheme={lightTheme}
                     />
                   )}
                 </Draggable>
