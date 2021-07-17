@@ -79,6 +79,7 @@ const MainSection = () => {
   // function to add todos to local storage
   const addToLocalStorage = (filteredTodos) => {
     localStorage.setItem("todoItems", JSON.stringify(filteredTodos));
+    localStorage.setItem("theme", JSON.stringify(lightTheme));
     // renderTodos(todos);
     filterHandler();
   };
@@ -86,23 +87,27 @@ const MainSection = () => {
   // function helps to get everything from local storage
   const getFromLocalStorage = () => {
     const reference = localStorage.getItem("todoItems");
+    const theme = localStorage.getItem("theme");
     // if reference exists
     if (reference) {
       // converts back to array and store it in todos array
       setTodoItems(JSON.parse(reference));
     }
+
+    if (theme) {
+      setLightTheme(JSON.parse(theme));
+    }
   };
 
   useEffect(() => {
-    
+
     getFromLocalStorage();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    
     filterHandler();
     addToLocalStorage(filteredTodos);
-  }, [todoItems, status, filteredTodos]);
+  }, [todoItems, status, filteredTodos, lightTheme]);
 
   return (
     <>
